@@ -9,3 +9,5 @@
 # 📋 작업 항목들 
 
 #### 🐥  요구사항 분석서 [959d263](https://github.com/JuSuIn/hhplusweek2/commit/959d2633176b797a3686362a8468ff814c96819b)
+
+#### 🐥  E-Commerce UML Diagram [49db576](https://github.com/JuSuIn/hhplusweek2/commit/49db5761552103c0541e87f0665b80e26d8cb74a)
