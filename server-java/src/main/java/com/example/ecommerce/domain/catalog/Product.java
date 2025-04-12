@@ -5,8 +5,9 @@ package com.example.ecommerce.domain.catalog;// Product.java  상품 정보 (이
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
+@Getter
 public class Product {
 
     @Id @GeneratedValue
@@ -28,9 +30,6 @@ public class Product {
 
     @ManyToOne(fetch = FetchType.LAZY)
 
-    //@JoinColumn(name = "category_id")
-    //private Category category;      //카테코리 조회
-
     @Enumerated(EnumType.STRING)
     private ProductStatus status;
 
@@ -38,5 +37,4 @@ public class Product {
     private LocalDateTime createdAt;//상품등록일
     @LastModifiedDate
     private LocalDateTime updatedAt;//상품수정일
-
 }
