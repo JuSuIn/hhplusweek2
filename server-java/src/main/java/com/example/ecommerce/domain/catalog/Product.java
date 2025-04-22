@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Getter
-public class Product {  s
+public class Product {
 
     @Id @GeneratedValue
     private Long pro_Id; //상품 ID
