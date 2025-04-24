@@ -12,6 +12,8 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -27,6 +29,12 @@ public class Product {
     private String unit;//상품 단위
     private String description; //상품 설명
     private String thumbnailImageUrl;//상품목록용이미지(imageUrl)
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Category category;
+
+    @ManyToMany
+    private List<Tag> tags = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
 

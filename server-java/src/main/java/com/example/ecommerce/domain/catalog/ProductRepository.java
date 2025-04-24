@@ -4,16 +4,19 @@
 package com.example.ecommerce.domain.catalog;
 import com.example.ecommerce.domain.catalog.Product;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Optional;
 
 /**
  *  상품에 대한 순수 비즈니스만 넣음
- *  전체 상품 목록 조회
- *  특정 상품 조회 (상품 ID ,상품명등)
- *  상세 내역 상품 조회
- *  최근 상품 들만 조회
+ *  1.전체 상품 목록 조회
+ *  2.특정 상품 조회 (상품 ID ,상품명등)
+ *  3.상세 내역 상품 조회
+ *  4.최근 상품 들만 조회
+ *  5. 특정 카테고리 상품 조회
+ *  6. 특정 태그 상품 조회
  * */
 
 public interface ProductRepository {
@@ -26,5 +29,9 @@ public interface ProductRepository {
 
     Optional<Product> findById(Long id); //상세 내역 상품 조회
     List<Product> findRecentProducts(); //최근 상품 들만 조회
+
+    List<Product> findByCategoryId(Long categoryId); //카테고리 조회
+    List<Product> findByTagName(String tagName); //테크 네임 조회
+    List<Product> findByTagIds(@Param("tagIds") List<Long> tagIds); //테그 ID 기반 조회
 
 }
