@@ -26,4 +26,5 @@ public class ProductDto {
         this.description=product.getDescription();
         this.thumbnailImageUrl= product.getThumbnailImageUrl();
     }
+
 }
