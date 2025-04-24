@@ -70,7 +70,7 @@ public class ProductQueryService {
         if(tabIds == null || tabIds.isEmpty()){
             throw new IllegalArgumentException("태그 ID 리스트가 비어 있습니다.");
         }
-        return productRepository.findByTagIds(tagIds);
+        return productRepository.findByTagIds(tabIds);
     }
 
 }

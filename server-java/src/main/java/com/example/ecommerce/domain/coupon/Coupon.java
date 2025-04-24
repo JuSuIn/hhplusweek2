@@ -1,4 +1,7 @@
 package com.example.ecommerce.domain.coupon;// 쿠폰 엔티티
+/*
+   쿠폰 정보 도메인
+ */
 
 import com.example.ecommerce.domain.coupon.CouponStatus;
 import com.example.ecommerce.domain.coupon.CouponType;
@@ -6,11 +9,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
+import lombok.Getter;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
 public class Coupon
 {
     @Id @GeneratedValue
@@ -31,7 +36,23 @@ public class Coupon
 
     private Long minimumOrderPrice;           // 사용 조건 (최소 주문 금액)
 
-    public Coupon() {
+    public Coupon() { }
+
+    //쿠폰 생성
+    public static Coupon create(String name,Long discountAmount,Double discountRate,
+                                LocalDateTime issuedAt,LocalDateTime expiredAt,
+                                CouponType type,Long minimumOrderPrice)
+    {
+        Coupon coupon = new Coupon();
+        coupon.name = name;
+        coupon.discountAmount=discountAmount;
+        coupon.discountRate=discountRate;
+        coupon.issuedAt=issuedAt;
+        coupon.expiredAt=expiredAt;
+        coupon.type=type;
+        coupon.minimumOrderPrice=minimumOrderPrice;
+
+        return coupon;
     }
 
     //쿠폰이 사용 가능한지 판단하는 로직 처리 (쿠폰의 책임이 크기 때문에 ) domain 로직에 넣음
@@ -44,5 +65,13 @@ public class Coupon
     //쿠폰이 "실제로 사용" 되었을때 쿠폰의 상태를 "사용일"로 변경
     public void markAsUsed(){
         this.status = CouponStatus.USED;
+    }
+
+    public boolean isExprired(LocalDateTime now){
+        return now.isAfter(this.expiredAt);
+    }
+
+    public boolean isUsed(){
+        return this.status == CouponStatus.USED;
     }
 }
