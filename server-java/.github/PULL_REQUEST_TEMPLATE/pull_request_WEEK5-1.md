@@ -25,7 +25,7 @@
 ### 2) APPRICATION(SERVICE)
 * PRODUCT
     * [상품 서비스 분리](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/application/catalog)
-      * ProductQueryService - 조회
+    * ProductQueryService - 조회
     * ProductService -등록,수정,삭제
 
 
