@@ -28,7 +28,9 @@
 * ORDER
   * [주문 도메인 구현](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/order)
   * [주문 Repository](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/order)
-
+* PAYMENT
+  * [결제 도메인 구현](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/payment)
+  * [결제 Repository](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/payment)
 
 ### 2) APPRICATION(SERVICE)
 * PRODUCT
@@ -42,7 +44,9 @@
 * ORDER
   * [주문 서비스](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/application/order)
   * OrderService -주문생성,주문완료,주문취소,사용자주문내역조회
-
+* PAYMENT
+  * [결제 서비스](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/application/payment)
+  * PaymentService -결제 생성 (결제 요청),결제 완료,결제 실패
 <!-- TOC -->
 
 <!-- 
