@@ -5,7 +5,7 @@ package com.example.ecommerce.domain.coupon;// 정액 할인, 정률 할인 등 
  */
 public enum CouponType {
     AMOUNT,      // 정액 할인
-    RATE        // 정률 할인
+    RATE;        // 정률 할인
 
     /*
     *  현재 타입이 정액 할인 타입인지 여부 반환
@@ -19,8 +19,7 @@ public enum CouponType {
      * 현재 타입이 정률 할인 타입인지 여부 반환
      * @return true - 정률 할인, false - 정액 할인
      */
-    public boolean isRateDiscount(){
+    public boolean isRateDiscount() {
         return this == RATE;
     }
-
 }
