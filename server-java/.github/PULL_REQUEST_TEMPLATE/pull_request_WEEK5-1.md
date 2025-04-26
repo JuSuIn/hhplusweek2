@@ -25,6 +25,10 @@
 * COUPON
     * [쿠폰 도메인 구현](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/coupon)
     * [쿠폰 Repository](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/coupon)
+* ORDER
+  * [주문 도메인 구현](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/order)
+  * [주문 Repository](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/order)
+
 
 ### 2) APPRICATION(SERVICE)
 * PRODUCT
@@ -35,6 +39,9 @@
   * [쿠폰 서비스 분리](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/application/coupon)
   * ProductQueryService - 조회
   * ProductService -등록,수정,삭제
+* ORDER
+  * [주문 서비스](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/application/order)
+  * OrderService -주문생성,주문완료,주문취소,사용자주문내역조회
 
 <!-- TOC -->
 
