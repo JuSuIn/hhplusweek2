@@ -36,7 +36,7 @@ public class WalletService {
     }
 
     /**
-     *  자갑 잔액 출금
+     *  지갑 잔액 출금
      * */
     public void withraw(Long userId,Long amount,String description){
         Wallet wallet =walletRepository.findByUserId(userId)

@@ -31,6 +31,10 @@
 * PAYMENT
   * [결제 도메인 구현](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/payment)
   * [결제 Repository](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/payment)
+* WALLET
+  * [지갑 도메인 구현](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/wallet)
+  * [지갑 Repository](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/wallet)
+
 
 ### 2) APPRICATION(SERVICE)
 * PRODUCT
@@ -47,6 +51,11 @@
 * PAYMENT
   * [결제 서비스](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/application/payment)
   * PaymentService -결제 생성 (결제 요청),결제 완료,결제 실패
+* WALLET
+  * [지갑 서비스](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/application/wallet)
+  * WalletService -지갑 잔액 충전,자갑 잔액 출금,지갑 잔액 조회
+
+
 <!-- TOC -->
 
 <!-- 
