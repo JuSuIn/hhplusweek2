@@ -1,9 +1,7 @@
 package com.example.ecommerce.domain.wallet;// 사용자 지갑 (잔액 상태 포함)
 // 잔액만 다룸
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
@@ -15,7 +13,7 @@ public class Wallet{
     private Long id;
 
     private Long userId; //사용자 ID
-    private Long balance; //잔액(원 단위)
+    private Long balance; //지갑 잔액(원 단위)
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
@@ -23,6 +21,8 @@ public class Wallet{
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
+    @Enumerated(EnumType.STRING)
+    private WalletType type;//지갑 타입( 예 ) 기본 , 포인트 등 )
 
     public Wallet(){}
 

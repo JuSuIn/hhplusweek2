@@ -1,6 +1,7 @@
 package com.example.ecommerce.domain.wallet;//지갑유형 (카드,포인트,충전금등)
 /*
  *  잔액의 종류를 다루는
+ *  지갑 타입
  *
  * */
 
