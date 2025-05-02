@@ -15,10 +15,15 @@ import java.util.List;
 import java.util.Optional;
 
 /** 상품 조회 서비스
+=======
+/** 상품 조회 전용 서비스
  *  1.전체 상품 목록 조회
  *  2.특정 상품 조회 (상품 ID ,상품명등)
  *  3.상세 내역 상품 조회
  *  4.최근 상품 들만 조회
+ *  5. 특정 카테고리 상품 조회
+ *  6. 특정 태그 상품 조회
+ *  7. 태그 ID 목록으로 상품 조회
  * */
 @Service
 @RequiredArgsConstructor
@@ -50,6 +55,24 @@ public class ProductQueryService {
     //4.최근 상품 들만 조회
     public List<Product> findRecentProducts(){
         return productRepository.findRecentProducts();
+    }
+
+    // 5. 특정 카테고리 상품 조회
+    public List<Product> findByCategoryId(Long categoryId){
+        return productRepository.findByCategoryId(categoryId);
+    }
+
+    // 6. 특정 태그 상품 조회
+    public List<Product> findByTagName(String tagName){
+        return productRepository.findByTagName(tagName);
+    }
+
+    // 7. 태그 ID 목록으로 상품 조회
+    public List<Product> findByTagIds(List<Long> tabIds){
+        if(tabIds == null || tabIds.isEmpty()){
+            throw new IllegalArgumentException("태그 ID 리스트가 비어 있습니다.");
+        }
+        return productRepository.findByTagIds(tabIds);
     }
 
 }

@@ -3,19 +3,25 @@ package com.example.ecommerce.domain.wallet;// 잔액 변경 내역 (충전/사�
 
 import com.example.ecommerce.domain.wallet.Wallet;
 import jakarta.persistence.*;
+import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
 /**
- *  잔액이 이력 정보
- * */
+ * 잔액(지갑) 거래 기록
+ */
 
+@Entity
+@Getter
 public class WalletTransaction {
     @Id
     @GeneratedValue
     private Long id; //잔액의 ID
+    private Long walletId; //지갑 ID
+
+    private Long amount; //거래 금액( 양수 : 충전, 음수 : 사용)
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Wallet wallet; //잔액 정보
@@ -28,6 +34,16 @@ public class WalletTransaction {
     @CreatedDate
     private LocalDateTime createdAt;
 
+    private LocalDateTime transactionAt;
+
+    protected WalletTransaction() {}
+
+    public WalletTransaction(Long walletId,Long amount,String description){
+        this.walletId=walletId;
+        this.amount=amount;
+        this.description=description;
+        this.transactionAt=LocalDateTime.now();
+    }
     //입금 상태 인지  ..
     public boolean isDeposit(){
         return this.transactionType == TransactionType.DEPOSIT;

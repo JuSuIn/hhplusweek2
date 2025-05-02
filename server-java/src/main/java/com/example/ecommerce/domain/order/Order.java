@@ -4,18 +4,31 @@ package com.example.ecommerce.domain.order;//주문 엔티티입니다. 하나�
 
 /*
    기본 주문 엔터티 도메인 입니다.
+   1.기본 엔터티
+   2. 주문 항목 추가
+   3. 주문 생성시 호출
+   4. 총주문 금액 계산
+   5. 주문 취소
+   6. 주문 완료
  */
 
+
 import com.example.ecommerce.domain.coupon.Coupon;
+import com.example.ecommerce.domain.coupon.CouponType;
 import com.example.ecommerce.domain.order.OrderItem;
 import com.example.ecommerce.domain.order.OrderStatus;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 public class Order {
 
     @Id @GeneratedValue
@@ -43,6 +56,45 @@ public class Order {
         orderItems.add(item);
         item.setOrder(this);
     }*/
+
+    //주문 항목 추가
+    public void addOrderItem(OrderItem item){
+        orderItems.add(item);
+        item.setOrder(this);
+    }
+
+    //주문 생성시 호출 - 기본정보와 아이템,쿠폰
+    public void create(Long userId,List<OrderItem> items,Coupon coupon){
+        this.userId=userId;
+        this.status=OrderStatus.CREATED;
+        this.orderedAt=LocalDateTime.now();
+        this.coupon=coupon;
+        items.forEach(this::addOrderItem);
+
+        //총 주문 금액
+        calculateTotalPrice();
+    }
+
+    //총 주문 금액 계산 - 주문 금액 합산 + 쿠폰 적용
+    private void calculateTotalPrice(){
+        long sum = orderItems.stream()
+                .mapToLong(OrderItem::calculateTotalPrice)
+                .sum();
+
+        //쿠폰이 이미 있거나 쿠폰을 오늘 발급받았는지 확인
+        if(coupon != null && coupon.isAvailable(LocalDateTime.now(),sum))
+        {
+            if(coupon.getType() == CouponType.AMOUNT){
+                sum -= coupon.getDiscountAmount();
+            }else if(coupon.getType() == CouponType.RATE){
+                sum -= (long)(sum * coupon.getDiscountRate());
+            }
+            coupon.markAsUsed(); //쿠폰 상태 변경
+        }
+        this.totalPrice = Math.max( sum , 0L);
+    }
+
+    //주문 상태 변경용
     //주문 취소
     public void cancel() {
         this.status = OrderStatus.CANCELLED;
@@ -52,5 +104,4 @@ public class Order {
     public void complete() {
         this.status = OrderStatus.PAID;
     }
-
 }
