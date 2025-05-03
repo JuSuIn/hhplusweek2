@@ -8,6 +8,46 @@
   히스토리나 정책, 특정 기술 등에 대한 이해가 필요한 작업일 때 참고자료가 있다면 리뷰어에게 큰 도움이 됩니다!
 -->
 -----------------------------------------------------------------
+## 현재 완료 된 부분
+
+### 1) DOMAIN
+* PRODUCT
+    * [상품 도메인 구현](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/catalog)
+    * [상품 Repository](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/catalog)
+* COUPON
+    * [쿠폰 도메인 구현](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/coupon)
+    * [쿠폰 Repository](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/coupon)
+* ORDER
+    * [주문 도메인 구현](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/order)
+    * [주문 Repository](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/order)
+* PAYMENT
+    * [결제 도메인 구현](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/payment)
+    * [결제 Repository](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/payment)
+* WALLET
+    * [지갑 도메인 구현](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/wallet)
+    * [지갑 Repository](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/domain/wallet)
+
+
+### 2) APPRICATION(SERVICE)
+* PRODUCT
+    * [상품 서비스 분리](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/application/catalog)
+    * ProductQueryService - 조회
+    * ProductService -등록,수정,삭제
+* COUPON
+    * [쿠폰 서비스 분리](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/application/coupon)
+    * ProductQueryService - 조회
+    * ProductService -등록,수정,삭제
+* ORDER
+    * [주문 서비스](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/application/order)
+    * OrderService -주문생성,주문완료,주문취소,사용자주문내역조회
+* PAYMENT
+    * [결제 서비스](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/application/payment)
+    * PaymentService -결제 생성 (결제 요청),결제 완료,결제 실패
+* WALLET
+    * [지갑 서비스](https://github.com/JuSuIn/hhplusweek2/tree/WEEK5-1/server-java/src/main/java/com/example/ecommerce/application/wallet)
+    * WalletService -지갑 잔액 충전,자갑 잔액 출금,지갑 잔액 조회
+
+-----------------------------------------------------------------
 
 ## PR
 ### 6주차
@@ -15,3 +55,16 @@
 <!-- 해당 PR이 왜 발생했고, 어떤부분에 대한 작업인지 작성해주세요. -->
 
 -----------------------------------------------------------------
+
+## 리뷰 포인트
+## 현재 구현 된 부분
+
+### 1) DOMAIN
+* RANKING
+    * [인기상품랭킹 도메인 구현](https://github.com/JuSuIn/hhplusweek2/tree/WEEK6-1/server-java/src/main/java/com/example/ecommerce/domain/ranking)
+    * [인기상품랭킹 Repository](https://github.com/JuSuIn/hhplusweek2/tree/WEEK6-1/server-java/src/main/java/com/example/ecommerce/domain/ranking)
+
+### 2) APPRICATION(SERVICE)
+* RANKING
+    * [인기상품랭킹 서비스](https://github.com/JuSuIn/hhplusweek2/tree/WEEK6-1/server-java/src/main/java/com/example/ecommerce/application/ranking)
+    * RankingService -랭킹 타입별 상위 랭킹 리스트 조회,특정 상품의 랭킹 조회,오래된 랭킹 삭제,랭킹 업데이트
