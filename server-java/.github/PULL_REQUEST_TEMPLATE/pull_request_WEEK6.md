@@ -52,7 +52,7 @@
 ## PR
 ### 6주차
 ### 1) 아직 미구현된 로직 구현 중입니다.
-<!-- 해당 PR이 왜 발생했고, 어떤부분에 대한 작업인지 작성해주세요. -->
+### 2) FACADE 로직 구현 했습니다. 
 
 -----------------------------------------------------------------
 
@@ -68,3 +68,10 @@
 * RANKING
     * [인기상품랭킹 서비스](https://github.com/JuSuIn/hhplusweek2/tree/WEEK6-1/server-java/src/main/java/com/example/ecommerce/application/ranking)
     * RankingService -랭킹 타입별 상위 랭킹 리스트 조회,특정 상품의 랭킹 조회,오래된 랭킹 삭제,랭킹 업데이트
+
+* FACADE
+  * [파사드 로직 구현](https://github.com/JuSuIn/hhplusweek2/tree/WEEK6-1/server-java/src/main/java/com/example/ecommerce/application/facade)
+  * ProductFacade - 상품 관련 파사드 , 상품 등록.수정.삭제 , 인기상품조회 ( 랭킹 타입별 상위 랭킹 리스트 조회)
+  * CouponIssueFacade -쿠폰 관련 정책 파사드 , 쿠폰 발급 , 사용자가 사용할 수 있는 쿠폰 조회
+  * OrderFacade -  주문 파사드 ,  쿠폰 사용 처리한 뒤 -> 주문 생성 , 주문 취소
+  * PaymentFacade - 결제 관련 파사드 , 주문 상태 확인 -> 결제 처리 -> 주문 완료 처리
