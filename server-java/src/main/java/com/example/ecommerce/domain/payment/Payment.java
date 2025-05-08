@@ -20,6 +20,8 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private PaymentMethod method; // 예: CARD, KAKAO_PAY, NAVER_PAY
+
+
     private Long amount;//결제 금액
 
     private LocalDateTime paidAt;
@@ -45,6 +47,19 @@ public class Payment {
         this.amount=amount;
         this.method=method;
         this.status=PaymentStatus.READY; //처음상태(결제 대기)
+    }
+
+    public Payment(Order order,
+                   PaymentMethod method,
+                   Long amount,
+                   PaymentStatus paymentStatus,
+                   LocalDateTime  paidAt)
+    {
+        this.order=order;
+        this.method=method;
+        this.amount=amount;
+        this.status=paymentStatus;
+        this.paidAt=paidAt;
     }
 
     //결제 완료 처리

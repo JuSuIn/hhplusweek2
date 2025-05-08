@@ -6,12 +6,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
 /*
    주문항목 도메인
  */
 @Entity
+@Getter
+@Setter
 public class OrderItem {
 
     @Id @GeneratedValue

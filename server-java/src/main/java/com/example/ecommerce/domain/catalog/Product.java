@@ -48,6 +48,45 @@ public class Product {
     //soft delete  여부 확인용 필드 추가
     private boolean deleted = false;
 
+    public Product(Long pro_Id,
+                   String productName,
+                   int quantity,
+                   Long price,
+                   String specification,
+                   String unit,
+                   String description,
+                   String thumbnailImageUrl
+                   )
+    {
+        this.pro_Id=pro_Id;
+        this.productName=productName;
+        this.quantity=quantity;
+        this.price=price;
+        this.specification=specification;
+        this.unit=unit;
+        this.description=description;
+        this.thumbnailImageUrl=thumbnailImageUrl;
+    }
+
+    public Product(String productName,
+                   int quantity,
+                   Long price,
+                   String specification,
+                   String unit,
+                   String description,
+                   String thumbnailImageUrl
+    )
+    {
+        this.productName=productName;
+        this.quantity=quantity;
+        this.price=price;
+        this.specification=specification;
+        this.unit=unit;
+        this.description=description;
+        this.thumbnailImageUrl=thumbnailImageUrl;
+    }
+
+
     // 상품 정보 수정용 도메인 메서드
     public void update(Product product
                        //String name,int quantity,Long price,

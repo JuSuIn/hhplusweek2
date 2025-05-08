@@ -26,4 +26,33 @@ public class ProductDto {
         this.description=product.getDescription();
         this.thumbnailImageUrl= product.getThumbnailImageUrl();
     }
+
+    //변환 메서드
+    //상품등록용
+    public Product toEntityForCreate(){
+        return new Product(
+        this.pro_Id,
+        this.productName,
+        this.quantity,
+        this.price,
+        this.specification,
+        this.unit,
+        this.description,
+        this.thumbnailImageUrl
+        );
+    }
+
+    //상품수정용
+    public Product toEntityForUpdate(){
+        return new Product(
+                this.productName,
+                this.quantity,
+                this.price,
+                this.specification,
+                this.unit,
+                this.description,
+                this.thumbnailImageUrl
+        );
+    }
+
 }

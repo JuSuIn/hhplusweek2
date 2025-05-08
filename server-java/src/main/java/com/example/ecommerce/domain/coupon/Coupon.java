@@ -36,6 +36,7 @@ public class Coupon
 
     private Long minimumOrderPrice;           // 사용 조건 (최소 주문 금액)
 
+    private Long userId; //사용자 ID
     public Coupon() { }
 
     //쿠폰 생성
@@ -55,6 +56,7 @@ public class Coupon
         return coupon;
     }
 
+
     //쿠폰이 사용 가능한지 판단하는 로직 처리 (쿠폰의 책임이 크기 때문에 ) domain 로직에 넣음
     public boolean isAvailable(LocalDateTime now, Long orderTotal){
         return this.status == CouponStatus.UNUSED &&
@@ -62,6 +64,7 @@ public class Coupon
                 orderTotal >= this.minimumOrderPrice;
     }
 
+    public void assignToUser(Long userId){ this.userId = userId; }
     //쿠폰이 "실제로 사용" 되었을때 쿠폰의 상태를 "사용일"로 변경
     public void markAsUsed(){
         this.status = CouponStatus.USED;
