@@ -8,13 +8,17 @@ package com.example.ecommerce.domain.payment;// 주문에 대해 얼마를, 어�
 import com.example.ecommerce.domain.order.Order;
 import com.example.ecommerce.domain.payment.PaymentStatus;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.cglib.core.Local;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@Setter
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +34,7 @@ public class Payment {
     @JoinColumn(name = "order_id")
     private Order order;            //주문
 
-    private Long orderId;//결제 대상 주문ID
+    //private Long orderId;//결제 대상 주문ID
 
     // 결제수단 변경
     public void validdatePaymentMethod() {
@@ -42,8 +46,8 @@ public class Payment {
 
     protected Payment() {}
 
-    public Payment(Long orderId,Long amount,PaymentMethod method){
-        this.orderId=orderId;
+    public Payment(Order order,Long amount,PaymentMethod method){
+        this.order=order;
         this.amount=amount;
         this.method=method;
         this.status=PaymentStatus.READY; //처음상태(결제 대기)

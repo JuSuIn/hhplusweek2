@@ -4,7 +4,7 @@ package com.example.ecommerce.domain.ranking;// 인기 상품 랭킹 도메인 �
 import com.example.ecommerce.domain.catalog.Product;
 import jakarta.persistence.*;
 import lombok.Getter;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
 

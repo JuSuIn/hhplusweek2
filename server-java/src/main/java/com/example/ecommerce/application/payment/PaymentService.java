@@ -2,6 +2,7 @@
 package com.example.ecommerce.application.payment;
 
 import com.example.ecommerce.domain.order.Order;
+import com.example.ecommerce.domain.order.OrderRepository;
 import com.example.ecommerce.domain.order.OrderStatus;
 import com.example.ecommerce.domain.payment.Payment;
 import com.example.ecommerce.domain.payment.PaymentMethod;
@@ -24,13 +25,17 @@ import java.time.LocalDateTime;
 public class PaymentService {
 
     private final PaymentRepository paymentRepository;
+    private final OrderRepository orderRepository;
 
     /**
      * 결제 생성 (결제 요청)
      */
     @Transactional
     public Payment createPayment(Long orderId, Long amount, PaymentMethod menthod){
-        Payment payment = new Payment(orderId,amount,menthod);
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow( () -> new EntityNotFoundException("주문을 찾을 수 없습니다."));
+
+        Payment payment = new Payment(order,amount,menthod);
         return paymentRepository.save(payment);
     }
     /**

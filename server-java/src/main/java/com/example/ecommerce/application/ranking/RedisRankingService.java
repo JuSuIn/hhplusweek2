@@ -42,11 +42,19 @@ public class RedisRankingService {
     }
 
 
-    //하루 랭킹 데이터 초기화
-    // 자정에 랭킹 초기화 스케줄러에서 호출
+    /**
+     * 하루 랭킹 데이터 초기화
+     * 자정에 랭킹 초기화 스케줄러에서 호출
+     */
     public void clearRanking(){
         redisTemplate.delete(DAILY_RANKING_KEY);
     }
 
+    /**
+     * 테스트용 Redis 에서 특정 상품의 Score 조회 가능 메서드
+     * */
+    public Double getScore(Long productId){
+        return redisTemplate.opsForZSet().score("ranking:product:daily",productId.toString());
+    }
 
 }

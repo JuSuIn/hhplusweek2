@@ -32,8 +32,8 @@ public class CouponQueryService {
     }
 
     //편재 사용 가능한 쿠폰을 조회
-    public List<Coupon> findAvailableCoupons(){
-        return couponRepository.findAvailableCoupons(LocalDateTime.now());
+    public List<Coupon> findAvailableCoupons(Long userId,LocalDateTime now,Long orderTotal){
+        return couponRepository.findAvailableCoupons(userId,now,orderTotal);
     }
 
     //모든 쿠폰 이력 조회

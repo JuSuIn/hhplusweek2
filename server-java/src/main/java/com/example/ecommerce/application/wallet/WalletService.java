@@ -21,7 +21,7 @@ public class WalletService {
     private final WalletRepository walletRepository;
     private final WalletTransactionRepository walletTransactionRepository;
 
-    /*
+    /**
     *  지갑 잔액 충전
     *
     * */
@@ -32,7 +32,7 @@ public class WalletService {
         wallet.deposit(amount);
         walletRepository.save(wallet);
 
-        WalletTransaction transaction = new WalletTransaction(wallet.getId(), amount,description);
+        WalletTransaction transaction = new WalletTransaction(wallet, amount,description);
         walletTransactionRepository.save(transaction);
     }
 
@@ -46,7 +46,7 @@ public class WalletService {
         wallet.withdraw(amount);
         walletRepository.save(wallet);
 
-        WalletTransaction transaction=new WalletTransaction(wallet.getId(),-amount,description);
+        WalletTransaction transaction=new WalletTransaction(wallet,-amount,description);
         walletTransactionRepository.save(transaction);
     }
 

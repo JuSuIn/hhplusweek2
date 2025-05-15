@@ -5,12 +5,9 @@ package com.example.ecommerce.domain.coupon;// 쿠폰 엔티티
 
 import com.example.ecommerce.domain.coupon.CouponStatus;
 import com.example.ecommerce.domain.coupon.CouponType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.*;
 import lombok.Getter;
-import org.springframework.data.annotation.Id;
+
 
 import java.time.LocalDateTime;
 
@@ -18,7 +15,8 @@ import java.time.LocalDateTime;
 @Getter
 public class Coupon
 {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
     private String name;

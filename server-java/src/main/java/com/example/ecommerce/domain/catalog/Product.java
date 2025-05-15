@@ -21,7 +21,7 @@ import java.util.List;
 @Getter
 public class Product {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pro_Id; //상품 ID
     private String productName; //상품명
     private int quantity; //상품수량
@@ -68,22 +68,16 @@ public class Product {
         this.thumbnailImageUrl=thumbnailImageUrl;
     }
 
-    public Product(String productName,
-                   int quantity,
-                   Long price,
-                   String specification,
-                   String unit,
-                   String description,
-                   String thumbnailImageUrl
-    )
+    public Product(
+            String productName, int quantity, Long price, String specification, String unit, String description, String thumbnailImageUrl)
     {
-        this.productName=productName;
-        this.quantity=quantity;
-        this.price=price;
-        this.specification=specification;
-        this.unit=unit;
-        this.description=description;
-        this.thumbnailImageUrl=thumbnailImageUrl;
+        this.productName= this.productName;
+        this.quantity= this.quantity;
+        this.price= this.price;
+        this.specification= this.specification;
+        this.unit= this.unit;
+        this.description= this.description;
+        this.thumbnailImageUrl= this.thumbnailImageUrl;
     }
 
 

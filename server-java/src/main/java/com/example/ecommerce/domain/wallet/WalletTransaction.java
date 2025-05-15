@@ -5,7 +5,7 @@ import com.example.ecommerce.domain.wallet.Wallet;
 import jakarta.persistence.*;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
 
@@ -19,7 +19,7 @@ public class WalletTransaction {
     @Id
     @GeneratedValue
     private Long id; //잔액의 ID
-    private Long walletId; //지갑 ID
+    //private Long walletId; //지갑 ID
 
     private Long amount; //거래 금액( 양수 : 충전, 음수 : 사용)
 
@@ -38,8 +38,8 @@ public class WalletTransaction {
 
     protected WalletTransaction() {}
 
-    public WalletTransaction(Long walletId,Long amount,String description){
-        this.walletId=walletId;
+    public WalletTransaction(Wallet wallet,Long amount,String description){
+        this.wallet=wallet;
         this.amount=amount;
         this.description=description;
         this.transactionAt=LocalDateTime.now();

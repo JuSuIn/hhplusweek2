@@ -38,7 +38,7 @@ public interface ProductRepository {
     List<Product> findRecentProducts(); //최근 상품 들만 조회
 
     List<Product> findByCategoryId(Long categoryId); //카테고리 조회
-    List<Product> findByTagName(String tagName); //테크 네임 조회
+    List<Product> findByTagName(String tagName); //테그 네임 조회
     List<Product> findByTagIds(@Param("tagIds") List<Long> tagIds); //테그 ID 기반 조회
 
     //2) 상품  등록, 수정 ,삭제

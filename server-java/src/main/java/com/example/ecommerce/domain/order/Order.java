@@ -20,13 +20,13 @@ import com.example.ecommerce.domain.order.OrderStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.stereotype.Service;
+import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 @Getter
 @Setter
 public class Order {

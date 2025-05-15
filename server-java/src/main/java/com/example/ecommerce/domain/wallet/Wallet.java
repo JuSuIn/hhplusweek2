@@ -1,14 +1,11 @@
 package com.example.ecommerce.domain.wallet;// 사용자 지갑 (잔액 상태 포함)
 // 잔액만 다룸
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
+@Entity
 public class Wallet{
 
     @Id
