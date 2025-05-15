@@ -51,6 +51,8 @@ dependencies {
 
 	//redis
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+	// Lettuce pool 사용 시 필요
+	implementation("org.apache.commons:commons-pool2")
 }
 
 tasks.withType<Test> {
