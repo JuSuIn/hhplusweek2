@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Getter
 public class WalletTransaction {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; //잔액의 ID
     //private Long walletId; //지갑 ID
 

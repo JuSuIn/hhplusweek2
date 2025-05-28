@@ -2,6 +2,7 @@
 package com.example.ecommerce.application.order;
 
 
+import com.example.ecommerce.application.ranking.RedisRankingService;
 import com.example.ecommerce.domain.catalog.Product;
 import com.example.ecommerce.domain.catalog.ProductRepository;
 import com.example.ecommerce.domain.coupon.Coupon;
@@ -26,7 +27,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final ProductRepository productRepository;
     private final CouponRepository couponRepository;
-
+    private final RedisRankingService redisRankingService;
 
     /**
      * 주문 생성
@@ -52,7 +53,12 @@ public class OrderService {
             OrderItem item = OrderItem.createOrderItem(product, quantities.get(i));
             order.addOrderItem(item);
             totalPrice += item.calculateTotalPrice();
+
+            //인기상품 점수 증가
+            redisRankingService.increaseScore(product.getPro_Id(),quantities.get(i));
         }
+
+
 
         //쿠폰 적용(선택적)
         if (couponId != null) {

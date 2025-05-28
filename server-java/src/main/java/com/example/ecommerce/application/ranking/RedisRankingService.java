@@ -54,7 +54,7 @@ public class RedisRankingService {
      * 테스트용 Redis 에서 특정 상품의 Score 조회 가능 메서드
      * */
     public Double getScore(Long productId){
-        return redisTemplate.opsForZSet().score("ranking:product:daily",productId.toString());
+        return redisTemplate.opsForZSet().score(DAILY_RANKING_KEY,productId.toString());
     }
 
 }

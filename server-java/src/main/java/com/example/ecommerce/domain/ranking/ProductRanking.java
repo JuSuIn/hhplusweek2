@@ -24,6 +24,7 @@ public class ProductRanking {
     @Enumerated(EnumType.STRING)
     private RankingType rankingType; //판매량 기준의 상태
 
+    @Column(name = "ranking")
     private int rank; // 순위 (1위, 2위 ...)
 
     private LocalDateTime calculatedAt; // 랭킹 계산 시점

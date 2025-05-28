@@ -7,6 +7,7 @@ package com.example.ecommerce.domain.catalog;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import jakarta.persistence.Id;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -19,6 +20,7 @@ import java.util.List;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Getter
+@Setter
 public class Product {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -71,15 +73,18 @@ public class Product {
     public Product(
             String productName, int quantity, Long price, String specification, String unit, String description, String thumbnailImageUrl)
     {
-        this.productName= this.productName;
-        this.quantity= this.quantity;
-        this.price= this.price;
-        this.specification= this.specification;
-        this.unit= this.unit;
-        this.description= this.description;
-        this.thumbnailImageUrl= this.thumbnailImageUrl;
+        this.productName= productName;
+        this.quantity= quantity;
+        this.price= price;
+        this.specification= specification;
+        this.unit= unit;
+        this.description= description;
+        this.thumbnailImageUrl= thumbnailImageUrl;
     }
 
+    public Product() {
+
+    }
 
     // 상품 정보 수정용 도메인 메서드
     public void update(Product product

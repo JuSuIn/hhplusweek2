@@ -29,9 +29,10 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Table(name = "orders")
 public class Order {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;                            //주문 ID
 
     private Long userId;                      // 주문한 사용자 ID

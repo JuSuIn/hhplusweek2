@@ -1,6 +1,7 @@
 package com.example.ecommerce.domain.order;
 
 import com.example.ecommerce.application.order.OrderService;
+import com.example.ecommerce.application.ranking.RedisRankingService;
 import com.example.ecommerce.domain.catalog.Product;
 import com.example.ecommerce.domain.catalog.ProductRepository;
 import com.example.ecommerce.domain.coupon.Coupon;
@@ -13,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -26,14 +28,17 @@ import static org.mockito.Mockito.when;
 /*
    상품 서비스에 대한 Unit Test 작성
  */
+@SpringBootTest
 public class OrderServiceTest {
 
     @Mock private OrderRepository orderRepository;
     @Mock private ProductRepository productRepository;
     @Mock private CouponRepository couponRepository;
+    @Mock private RedisRankingService redisRankingService;
 
     @InjectMocks
     private OrderService orderService;
+
 
     @BeforeEach
     void setUp() {
@@ -49,8 +54,11 @@ public class OrderServiceTest {
         Long couponId=100L;
 
         //상품 및 쿠폰 가져오기
-        Product product1 = new Product(101L,"상품1",2,1000L, "SPEC", "KG", "관련자료1", "이미지");
-        Product product2 = new Product(102L,"상품2",1,5000L, "SPEC", "KG", "관련자료2", "이미지");
+        Product product1 = new Product("상품1",2,1000L, "SPEC", "KG", "관련자료1", "이미지");
+        product1.setPro_Id(101L);
+        Product product2 = new Product("상품2",1,5000L, "SPEC", "KG", "관련자료2", "이미지");
+        product2.setPro_Id(102L);
+
         Coupon coupon = Coupon.create(
                 "5천원할인",5000L,null,
                 LocalDateTime.now().minusDays(1),

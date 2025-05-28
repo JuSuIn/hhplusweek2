@@ -2,13 +2,9 @@ package com.example.ecommerce.domain.order;//  주문에서 상품 단위의 항
 //  어떤 상품을 몇 개 샀는지, 금액이 얼마인지 등을 포함
 
 import com.example.ecommerce.domain.catalog.Product;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import jakarta.persistence.Id;
 
 /*
    주문항목 도메인
@@ -18,7 +14,7 @@ import jakarta.persistence.Id;
 @Setter
 public class OrderItem {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private OrderStatus status;
     @ManyToOne(fetch = FetchType.LAZY)
