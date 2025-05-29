@@ -14,7 +14,7 @@
 ## ☔︎ 현재 커밋 링크 
 * 1) Kafka 개념 정리(현재 md 파일에 간략하게 작성)  [2e11e95](https://github.com/JuSuIn/hhplusweek2/commit/2e11e959d67e62ead5c94e88816ffa3dd9e2d55c),[2f95ddc](https://github.com/JuSuIn/hhplusweek2/commit/2f95ddca7ee492b81e74725739050314dc7d9d21#diff-feea40ba4a8e7519ece2194ff14c6c0e991526fc7f56877c98d94deb8b1439baR26)
 * 2) Kafka 관련 시나리오 작성(현재 md 파일에 간략하게 작성) : [1566fe5](https://github.com/JuSuIn/hhplusweek2/commit/1566fe54d0b28f44d566c6cc7db3bb401cf45837)
-* 3) Kafka 관련 데이터 플로우 : [1566fe5](https://github.com/JuSuIn/hhplusweek2/commit/1566fe54d0b28f44d566c6cc7db3bb401cf45837)
+* 3) Kafka 관련 데이터 플로우 : [4c2065d](https://github.com/JuSuIn/hhplusweek2/commit/4c2065d9799174ed0aebf2c6c7db44762b9ce684)
 
   
 
@@ -53,8 +53,7 @@
 * [Producer] → (Topic: order.completed) → [Broker] → [Consumer]
   * 하나의 Topic은 여러 개의 ConsumerGroup이 구독할 수 있으며,
   * 하나의 ConsumerGroup은 Topic의 Partition을 나누어 병렬 처리 가능
-
-
+![메세지 흐름 구조](../../docs/docs_images/kafkagujoflow2.png)
 
 ###  🎯 4. Kafka의 특징
 * 높은 처리량: 수백만 건의 메시지를 초당 처리 가능
