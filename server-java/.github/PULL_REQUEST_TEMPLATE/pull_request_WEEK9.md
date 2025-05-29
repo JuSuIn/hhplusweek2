@@ -16,6 +16,8 @@
 * 2) Kafka 관련 시나리오 작성(현재 md 파일에 간략하게 작성) : [1566fe5](https://github.com/JuSuIn/hhplusweek2/commit/1566fe54d0b28f44d566c6cc7db3bb401cf45837)
 * 3) Kafka 관련 데이터 플로우 : [4c2065d](https://github.com/JuSuIn/hhplusweek2/commit/4c2065d9799174ed0aebf2c6c7db44762b9ce684)
 * 4) Kafka 관련 주문 시퀀스다이어그램 : [kafka sequence Diagram](../../docs/kafka/kafka_sequence_Diagram%28Order%29.md)
+* 5) Kafka 관련 docker,application.xml setting : [a8ace0d](https://github.com/JuSuIn/hhplusweek2/commit/a8ace0d193dba7f2f17aad9a16fc5fc461c5816d)
+
 
 
 -----------------------------------------------------------------
