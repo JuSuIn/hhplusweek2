@@ -11,6 +11,7 @@ import com.example.ecommerce.domain.order.Order;
 import com.example.ecommerce.domain.order.OrderItem;
 import com.example.ecommerce.domain.order.OrderRepository;
 import com.example.ecommerce.domain.order.OrderStatus;
+import com.example.ecommerce.kafka.producer.OrderEventProducer;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,10 @@ public class OrderService {
     private final ProductRepository productRepository;
     private final CouponRepository couponRepository;
     private final RedisRankingService redisRankingService;
+
+    //kafka 이용한 repository
+    private final OrderEventProducer orderEventProducer;
+
 
     /**
      * 주문 생성
@@ -82,7 +87,14 @@ public class OrderService {
         }
 
         order.setTotalPrice((long)totalPrice);
-        return orderRepository.save(order);
+
+        Order savedOrder = orderRepository.save(order);
+
+        //여기에 kafka 를 불러온다.
+        orderEventProducer.sendOrderCompletedEvent(savedOrder.getId());
+
+        return savedOrder;
+        //return orderRepository.save(order);
     }
 
     /*
@@ -123,4 +135,10 @@ public class OrderService {
         return orderRepository.findById(orderId)
                 .orElseThrow( () -> new NoSuchElementException("주문을 찾을 수 없습니다. ID: " + orderId));
     }
+
+    /*
+     *   OrderService 내부에서 JPA + KafkaProducer 연동
+     *  아래 로직을 통해 kafka 연동 TEST
+     * */
+
 }
