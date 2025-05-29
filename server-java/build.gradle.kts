@@ -34,6 +34,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.kafka:spring-kafka")
 
 	// Lombok 👇 이거 두 줄 추가!
 	implementation("org.projectlombok:lombok")
@@ -56,6 +57,11 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
 	// Lettuce pool 사용 시 필요
 	implementation("org.apache.commons:commons-pool2")
+	// JSON 직렬화를 위한 Jackson (선택 사항)
+	implementation("com.fasterxml.jackson.core:jackson-databind")
+
+	// Kafka 테스트 (선택 사항)
+	testImplementation("org.springframework.kafka:spring-kafka-test")
 }
 
 tasks.withType<Test> {
