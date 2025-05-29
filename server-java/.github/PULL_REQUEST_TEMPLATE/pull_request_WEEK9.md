@@ -12,6 +12,7 @@
 ### 9주차
 
 ## ☔︎ 현재 커밋 링크 
+* 1) Kafka 개념 정리(현재 md 파일에 간략하게 작성)  [2e11e95](https://github.com/JuSuIn/hhplusweek2/commit/2e11e959d67e62ead5c94e88816ffa3dd9e2d55c)
 * 2) Kafka 관련 시나리오 작성(현재 md 파일에 간략하게 작성) : [1566fe5](https://github.com/JuSuIn/hhplusweek2/commit/1566fe54d0b28f44d566c6cc7db3bb401cf45837)
 
   
@@ -62,14 +63,23 @@
 
 
 
-###  🧪 5. Kafka 사용시 고려사항
+###  🧪 5. 🔐 메시지 내구성과 처리 보장
+| 전략                | 설명                             |
+| ----------------- | ------------------------------ |
+| **at-most-once**  | 중복 없이 최대 1회 전송. 실패 시 손실 가능성 있음 |
+| **at-least-once** | 최소 1회 전송. 중복 처리 가능성 있음 (보통 사용) |
+| **exactly-once**  | 정확히 1회 처리. 복잡하지만 고도화된 처리 보장    |
+
+
+
+###  🧪 6. Kafka 사용시 고려사항
 * 메시지 순서를 보장해야 할 경우 → 단일 Partition 내에서만 보장됨
 * 정확히 한 번 처리 (Exactly-Once) 보장하려면 추가적인 설정 필요
 * 메시지 유실 방지 → acks=all, replication.factor ≥ 2 권장
 
 
 
-###  📦 6. Kafka vs RabbitMQ 상세 비교
+###  📦 7. Kafka vs RabbitMQ 상세 비교
 | 항목                  | **Apache Kafka**                                          | **RabbitMQ**                                    |
 | ------------------- | --------------------------------------------------------- | ----------------------------------------------- |
 | **기반 아키텍처**         | 분산 로그 저장 기반 (Publish-Subscribe 모델)                        | 메시지 브로커 기반 (큐 모델 - Producer → Queue → Consumer) |
@@ -91,7 +101,7 @@
 
 
 
-### ✅ 9. 마무리
+### ✅ 8. 마무리
 * Kafka는 대규모 실시간 이벤트 처리에 적합한 플랫폼
 * Spring Kafka를 통해 Producer/Consumer를 쉽게 구성 가능
 
