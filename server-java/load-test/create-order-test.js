@@ -1,4 +1,4 @@
-//주문 생성 테스트
+//주문 생성 테스트..
 import http from 'k6/http';
 import { check , sleep } from 'k6';
 
