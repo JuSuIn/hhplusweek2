@@ -14,6 +14,7 @@
 ## ☔︎ 현재 커밋 & 작업물 링크 
 * 1) 이커머스 테스트 시나리오 작성(현재pr에 있음)  [82abc9d](https://github.com/JuSuIn/hhplusweek2/commit/82abc9d71c3e524e0a8f15bf83ecbc85f519aebd)
 * 2) 장애 대응 시나리오 작성                   [b30513b](https://github.com/JuSuIn/hhplusweek2/commit/b30513bbff259c82804481cf9db620b1302ecb02)
+* 3) 상품주문,쿠폰발급처리 k6 test 용 작성      [17d2e9c](https://github.com/JuSuIn/hhplusweek2/commit/17d2e9cc95c523860488b21870e1a2a80c99f544)
 
 -----------------------------------------------------------------
 
