@@ -44,7 +44,10 @@ dependencies {
 	runtimeOnly("com.mysql:mysql-connector-j")
 
     // Test
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
+		exclude(group = "org.junit.platform", module = "junit-platform-commons")
+	}
 	testImplementation("org.springframework.boot:spring-boot-testcontainers")
 	testImplementation("org.testcontainers:junit-jupiter")
 	testImplementation("org.testcontainers:mysql")
@@ -62,6 +65,12 @@ dependencies {
 
 	// Kafka 테스트 (선택 사항)
 	testImplementation("org.springframework.kafka:spring-kafka-test")
+
+	// JUnit 5 (Jupiter) 테스트 라이브러리 추가
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.2")
+	testRuntimeOnly("org.junit.platform:junit-platform-commons:1.10.2")
+	testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.10.2")
 }
 
 tasks.withType<Test> {
